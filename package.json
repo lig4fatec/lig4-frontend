@@ -11,7 +11,8 @@
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "lint:css": "stylelint \"src/**/*.scss\"",
-    "lint:css:fix": "stylelint \"src/**/*.scss\" --fix"
+    "lint:css:fix": "stylelint \"src/**/*.scss\" --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "phaser": "^4.2.1",
@@ -23,6 +24,7 @@
     "@vitejs/plugin-vue": "^6.0.8",
     "eslint": "^10.9.1",
     "eslint-plugin-vue": "^10.10.0",
+    "husky": "^9.1.7",
     "sass": "^1.103.1",
     "stylelint": "^17.14.1",
     "stylelint-config-standard-scss": "^17.0.0",
