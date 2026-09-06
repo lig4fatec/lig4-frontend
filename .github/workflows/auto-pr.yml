@@ -1,0 +1,41 @@
+name: Auto PR
+
+on:
+  push:
+    branches:
+      - 'feat/*'
+      - 'fix/*'
+      - 'docs/*'
+      - 'refactor/*'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
+          base: main
+          title: ${{ github.ref_name }}
+          body: |
+            ## Resumo
+            <!-- Descreva brevemente o que foi feito -->
+
+            ## Mudanças
+            <!-- Liste as principais mudanças -->
+
+            ## Checklist
+            - [ ] `npm run build` passa
+            - [ ] `npm run test` passa
+            - [ ] Código revisado
+          labels: enhancement
+          draft: true
