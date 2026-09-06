@@ -1,0 +1,70 @@
+@use '../base/variables' as *;
+
+.base-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-overlay;
+  z-index: 1000;
+
+  > .content {
+    background: $color-primary;
+    border-radius: 8px;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+
+    &.-sm {
+      max-width: 400px;
+    }
+
+    &.-md {
+      max-width: 600px;
+    }
+
+    &.-lg {
+      max-width: 800px;
+    }
+  }
+
+  > .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+  }
+
+  > .title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  > .close {
+    background: none;
+    border: none;
+    color: $color-text;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  > .body {
+    padding: 20px;
+  }
+
+  > .footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+  }
+}

@@ -1,0 +1,46 @@
+@use '../base/variables' as *;
+
+.base-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  > .label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-text;
+  }
+
+  > .field {
+    padding: 10px 14px;
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-radius: 6px;
+    background: rgb(255 255 255 / 5%);
+    color: $color-text;
+    font-size: $font-size-base;
+    font-family: $font-family;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  > .error {
+    font-size: 12px;
+    color: #e74c3c;
+  }
+
+  &.-error > .field {
+    border-color: #e74c3c;
+  }
+
+  &.-disabled {
+    opacity: 0.5;
+  }
+}

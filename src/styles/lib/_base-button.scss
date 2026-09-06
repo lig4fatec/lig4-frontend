@@ -1,0 +1,79 @@
+@use '../base/variables' as *;
+
+.base-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: $font-family;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.1s;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.-primary {
+    background: $color-accent;
+    color: $color-text;
+  }
+
+  &.-secondary {
+    background: transparent;
+    color: $color-text;
+    border: 1px solid $color-text;
+  }
+
+  &.-danger {
+    background: #e74c3c;
+    color: $color-text;
+  }
+
+  &.-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  &.-md {
+    padding: 10px 20px;
+    font-size: $font-size-base;
+  }
+
+  &.-lg {
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+
+  > .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentcolor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  > .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

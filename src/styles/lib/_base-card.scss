@@ -1,0 +1,38 @@
+@use '../base/variables' as *;
+
+.base-card {
+  background: rgb(255 255 255 / 5%);
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: 8px;
+
+  &.-highlighted {
+    border-color: $color-accent;
+    background: rgb(230 126 34 / 10%);
+  }
+
+  &.-none > .body {
+    padding: 0;
+  }
+
+  &.-sm > .body {
+    padding: 12px;
+  }
+
+  &.-md > .body {
+    padding: 20px;
+  }
+
+  &.-lg > .body {
+    padding: 32px;
+  }
+
+  > .header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+  }
+
+  > .footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+  }
+}
