@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath } from 'url'
@@ -20,5 +21,10 @@ export default defineConfig({
     rollupOptions: {
       external: ['phaser']
     }
-  }
+  },
+  test: {
+    environment: 'happy-dom',
+    globals: true,
+    include: ['src/**/*.spec.ts'],
+  },
 })
