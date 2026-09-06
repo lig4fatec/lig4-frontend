@@ -31,11 +31,11 @@ export function useGame(): IUseGameReturn {
     }
   }
 
-  onMounted(() => {
+  onMounted((): void => {
     typedEventBus.emit('game:mounted')
   })
 
-  onUnmounted(() => {
+  onUnmounted((): void => {
     typedEventBus.emit('game:unmounted')
   })
 

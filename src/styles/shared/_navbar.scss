@@ -1,0 +1,51 @@
+@use '../base/variables' as *;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: rgb(0 0 0 / 30%);
+  border-bottom: 1px solid rgb(255 255 255 / 10%);
+
+  > .brand {
+    display: flex;
+    align-items: center;
+  }
+
+  > .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-accent;
+  }
+
+  > .list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+
+  > .link {
+    display: block;
+    padding: 8px 16px;
+    color: $color-text;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgb(255 255 255 / 10%);
+    }
+
+    &.-active {
+      background: $color-accent;
+    }
+  }
+
+  > .profile {
+    display: flex;
+    align-items: center;
+  }
+}
