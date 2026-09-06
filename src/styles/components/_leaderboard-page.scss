@@ -1,0 +1,65 @@
+@use '../base/variables' as *;
+
+.leaderboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  > .title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $color-text;
+  }
+
+  > .list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  > .entry {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  > .rank {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $color-accent;
+    min-width: 40px;
+  }
+
+  > .player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  > .name {
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  > .stats {
+    display: flex;
+    gap: 12px;
+    font-size: 0.875rem;
+  }
+
+  > .wins {
+    color: #2ecc71;
+  }
+
+  > .losses {
+    color: #e74c3c;
+  }
+
+  > .draws {
+    color: rgb(255 255 255 / 50%);
+  }
+}

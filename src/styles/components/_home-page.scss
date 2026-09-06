@@ -1,0 +1,55 @@
+@use '../base/variables' as *;
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  padding: 48px 24px;
+
+  > .hero {
+    text-align: center;
+  }
+
+  > .title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $color-accent;
+    margin-bottom: 8px;
+  }
+
+  > .subtitle {
+    font-size: 1.125rem;
+    color: rgb(255 255 255 / 70%);
+  }
+
+  > .modes {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  > .mode-card {
+    cursor: pointer;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  > .mode-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $color-text;
+  }
+
+  > .mode-description {
+    font-size: 0.875rem;
+    color: rgb(255 255 255 / 60%);
+  }
+}

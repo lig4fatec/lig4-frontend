@@ -1,0 +1,60 @@
+@use '../base/variables' as *;
+
+.game-page {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 24px;
+  padding: 24px;
+  height: 100%;
+
+  > .header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  > .game-id {
+    font-size: 0.875rem;
+    color: rgb(255 255 255 / 60%);
+  }
+
+  > .board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > .canvas {
+    display: block;
+    background: $color-primary;
+    border-radius: 8px;
+  }
+
+  > .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background: rgb(0 0 0 / 30%);
+    border-radius: 8px;
+    height: fit-content;
+  }
+
+  > .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-accent;
+  }
+
+  > .status {
+    font-size: 1rem;
+    color: $color-text;
+  }
+
+  > .winner {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-accent;
+  }
+}

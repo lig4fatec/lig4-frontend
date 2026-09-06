@@ -1,0 +1,39 @@
+@use '../base/variables' as *;
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  > .title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: $color-text;
+  }
+
+  > .section {
+    width: 100%;
+  }
+
+  > .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: 16px;
+  }
+
+  > .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $color-text;
+  }
+
+  > .theme-options {
+    display: flex;
+    gap: 8px;
+  }
+}
