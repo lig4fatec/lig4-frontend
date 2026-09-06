@@ -11,6 +11,7 @@ O LIG 4 é um jogo Connect 4 multiplayer com frontend em Vue 3 + Phaser 4 e back
 | Tecnologia | Versão | Uso |
 |---|---|---|
 | Vue 3 | 3.5.x | UI framework (Composition API) |
+| Vue Router | 4.x | Navegação SPA |
 | Vite | 8.x | Build tool |
 | Phaser 4 | 4.2.x | Engine de jogo |
 | Pinia | 2.x | Estado global |
@@ -23,55 +24,104 @@ O LIG 4 é um jogo Connect 4 multiplayer com frontend em Vue 3 + Phaser 4 e back
 
 ```
 src/
-├── types/                    # Interfaces e tipos centralizados
-│   ├── game.ts               # IPiece, IGameContext, IGameState
-│   ├── events.ts             # IEventMap, IEventHandler
-│   ├── api.ts                # IApiResponse, IGameStateResponse, IMoveResponse
-│   ├── character.ts          # ICharacter
-│   └── composables.ts        # IUseGameReturn
+├── main.ts                          # Entry point
+├── App.vue                          # Root layout (router-view)
 │
-├── utils/                    # Funções utilitárias puras
-│   ├── character.ts          # createCharacter()
-│   └── game.ts               # createGameConfig(), constantes do jogo
+├── router/                          # Vue Router
+│   └── index.ts                     # Rotas da aplicação
 │
-├── composables/              # Vue composables
-│   └── useGame.ts            # Composable principal do jogo
+├── pages/                           # Views de rota
+│   ├── Home/                        # Lobby / tela inicial
+│   ├── Game/                        # Tela do jogo
+│   ├── Settings/                    # Configurações
+│   ├── Profile/                     # Perfil do jogador
+│   └── Leaderboard/                 # Placar / rankings
 │
-├── stores/                   # Pinia stores
-│   └── gameStore.ts          # Estado global do jogo
+├── lib/                             # Design system (componentes dumb)
+│   └── components/
+│       ├── BaseButton/              # Botão genérico
+│       ├── BaseModal/               # Modal/dialog
+│       ├── BaseInput/               # Input de texto
+│       ├── BaseCard/                # Card container
+│       └── BaseAvatar/              # Avatar do jogador
 │
-├── game/                     # Lógica do jogo (Phaser)
-│   ├── EventBus.ts           # Event bus tipado
-│   ├── facade/               # Padrão Facade (Vue ↔ Phaser)
-│   │   └── GameFacade.ts
-│   ├── scenes/               # Cenas Phaser
-│   │   └── MainScene.ts
-│   ├── strategies/           # Padrão Strategy
-│   │   ├── IGameStrategy.ts
-│   │   ├── HeroStrategy.ts
-│   │   ├── MageStrategy.ts
-│   │   └── StrategyFactory.ts
-│   ├── commands/             # Padrão Command
-│   │   ├── ICommand.ts
-│   │   └── CommandHistory.ts
-│   ├── container/            # DI Container
-│   │   └── GameContainer.ts
-│   └── models/               # Modelos de domínio
-│       └── GameState.ts
+├── shared/                          # Componentes smart + serviços compartilhados
+│   ├── components/
+│   │   └── Navbar/                  # Navegação entre páginas
+│   ├── composables/
+│   │   ├── useNavigation.ts         # Itens de navegação
+│   │   └── useWebSocket.ts          # Composable WebSocket
+│   └── services/
+│       └── WebSocketService.ts      # Cliente WebSocket singleton
 │
-├── services/                 # Serviços de negócio
-│   ├── GameService.ts        # Lógica de negócio pura
-│   └── ApiService.ts         # Comunicação com backend
+├── game/                            # Lógica do jogo (Phaser)
+│   ├── EventBus.ts                  # Event bus tipado
+│   ├── facade/                      # Padrão Facade (Vue ↔ Phaser)
+│   ├── scenes/                      # Cenas Phaser
+│   ├── strategies/                  # Padrão Strategy
+│   ├── commands/                    # Padrão Command
+│   ├── container/                   # DI Container
+│   └── models/                      # Modelos de domínio
 │
-├── styles/                   # Estilos SCSS (RSCSS)
-│   ├── base/                 # Variáveis, reset
-│   ├── components/           # Estilos por componente
-│   └── helpers/              # Classes utilitárias
+├── stores/                          # Pinia stores
+│   └── gameStore.ts                 # Estado global do jogo
 │
-├── App.vue                   # Componente raiz (template)
-├── App.script.ts             # Componente raiz (lógica)
-└── main.ts                   # Entry point
+├── services/                        # Serviços de negócio
+│   ├── GameService.ts               # Lógica de negócio pura
+│   └── ApiService.ts                # Comunicação com backend
+│
+
+├── types/                           # Interfaces e tipos
+│   ├── game.ts                      # IPiece, IGameContext, IGameState
+│   ├── events.ts                    # IEventMap, IEventHandler
+│   ├── api.ts                       # IApiResponse, IGameStateResponse
+│   ├── character.ts                 # ICharacter
+│   ├── composables.ts               # IUseGameReturn
+│   └── navigation.ts               # INavItem, IGameMode, IPlayer, IScoreEntry
+│
+├── utils/                           # Funções utilitárias
+│   ├── game.ts                      # createGameConfig(), constantes do jogo
+│   ├── character.ts                 # createCharacter()
+│   └── constants.ts                 # Constantes semânticas (rotas, eventos, etc.)
+│
+└── styles/                          # Estilos SCSS (RSCSS)
+    ├── base/                        # Variáveis, reset
+    ├── lib/                         # Estilos dos componentes base
+    ├── shared/                      # Estilos dos componentes compartilhados
+    ├── components/                  # Estilos por componente
+    └── helpers/                     # Classes utilitárias
 ```
+
+## Camadas de arquitetura
+
+### `lib/` — Design System
+Componentes UI genéricos, reutilizáveis, **sem lógica de negócio**. Prefixed com `Base`.
+- Nunca importa de `pages/`, `shared/`, `stores/`, `game/`
+- Apenas recebe props e emite eventos
+
+### `shared/` — Componentes smart + serviços
+Componentes com lógica de negócio usados em múltiplas páginas.
+- Pode importar de `lib/`, `stores/`, `composables/`, `types/`
+- Inclui composables compartilhados e serviços (WebSocket)
+
+### `pages/` — Views de rota
+Cada página é uma rota no Vue Router.
+- Importa de `lib/`, `shared/`, `stores/`, `composables/`
+- Segue padrão SFC multi-arquivo
+
+### `game/` — Lógica do jogo (Phaser)
+Integração com Phaser 4. Não muda com a nova arquitetura.
+
+## Regra de dependências
+
+```
+pages/  →  shared/*, lib/*, stores/*, composables/*
+shared/ →  lib/*, stores/*, composables/*, types/*
+lib/    →  (apenas types básicos)
+game/   →  stores/*, types/*, utils/*
+```
+
+**`lib/` nunca importa de `pages/`, `shared/`, `stores/`, `game/`.**
 
 ## Padrões de design
 
@@ -85,13 +135,14 @@ src/
 ### Vue
 - Composition API com `<script setup>`
 - SFC multi-arquivo: `.vue` (template) + `.script.ts` (lógica)
-- Estilos em SCSS separados
+- Componentes base prefixados com `Base`
+- Estilos em SCSS separados (RSCSS)
 
 ### TypeScript
 - Zero `any` (bloqueado pelo ESLint)
 - Interfaces prefixadas com `I`
-- Tipos centralizados em `src/types/`
-- Utils centralizados em `src/utils/`
+- Constantes semânticas em `utils/constants.ts`
+- Sem strings mágicas em código `.ts`
 
 ### SCSS (RSCSS)
 - Componentes: 2+ palavras (`.game-board`, `.ui-overlay`)
@@ -99,9 +150,20 @@ src/
 - Variantes: prefixo `-` (`.button.-active`)
 - Helpers: prefixo `_` (`._hidden`)
 
+## Rotas
+
+| Rota | Página | Descrição |
+|---|---|---|
+| `/` | Home | Lobby — seleção de modo |
+| `/game/:id?` | Game | Tela do jogo Connect 4 |
+| `/settings` | Settings | Configurações |
+| `/profile` | Profile | Perfil do jogador |
+| `/leaderboard` | Leaderboard | Rankings |
+
 ## Integração com o backend
 
 O `ApiService` se comunica com o backend Quarkus via REST API.
+O `WebSocketService` e `useWebSocket` suportam comunicação em tempo real.
 
 ## Segurança
 
