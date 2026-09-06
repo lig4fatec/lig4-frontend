@@ -14,6 +14,14 @@ export default tseslint.config(
         parser: tseslint.parser,
         sourceType: 'module',
       },
+      globals: {
+        MouseEvent: 'readonly',
+        Event: 'readonly',
+        HTMLInputElement: 'readonly',
+        WebSocket: 'readonly',
+        MessageEvent: 'readonly',
+        crypto: 'readonly',
+      },
     },
   },
   {
