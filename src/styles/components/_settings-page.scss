@@ -16,13 +16,13 @@
 
   > .section {
     width: 100%;
-  }
 
-  > .section-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: $color-text;
-    margin-bottom: 16px;
+    > .title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $color-text;
+      margin-bottom: 16px;
+    }
   }
 
   > .row {
@@ -32,7 +32,7 @@
     color: $color-text;
   }
 
-  > .theme-options {
+  > .options {
     display: flex;
     gap: 8px;
   }

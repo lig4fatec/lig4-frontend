@@ -11,26 +11,26 @@ const currentPath = computed(() => route.path)
 </script>
 
 <template>
-  <nav class="navbar">
-    <div class="navbar > brand">
-      <span class="navbar > logo">LIG 4</span>
+  <nav class="nav-bar">
+    <div class="brand">
+      <span class="logo">LIG 4</span>
     </div>
-    <ul class="navbar > list">
+    <ul class="list">
       <li
         v-for="item in navItems"
         :key="item.route"
-        class="navbar > item"
+        class="item"
       >
         <RouterLink
           :to="item.route"
-          class="navbar > link"
+          class="link"
           :class="{ '-active': currentPath === item.route }"
         >
           {{ item.label }}
         </RouterLink>
       </li>
     </ul>
-    <div class="navbar > profile">
+    <div class="profile">
       <BaseAvatar name="Jogador" size="sm" />
     </div>
   </nav>

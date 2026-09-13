@@ -7,18 +7,18 @@ const { store, gameId, resetGame } = useGamePage()
 
 <template>
   <div class="game-page">
-    <header class="game-page > header">
-      <span v-if="gameId" class="game-page > game-id">Partida: {{ gameId }}</span>
+    <header class="header">
+      <span v-if="gameId" class="id">Partida: {{ gameId }}</span>
     </header>
 
-    <div class="game-page > board">
-      <div id="game-canvas" class="game-page > canvas" />
+    <div class="board">
+      <div id="game-canvas" class="canvas" />
     </div>
 
-    <aside class="game-page > sidebar">
-      <h2 class="game-page > title">LIG 4</h2>
+    <aside class="sidebar">
+      <h2 class="title">LIG 4</h2>
 
-      <p class="game-page > status">Vez do jogador {{ store.currentPlayer }}</p>
+      <p class="status">Vez do jogador {{ store.currentPlayer }}</p>
 
       <BaseButton
         v-if="store.gameOver"
@@ -28,7 +28,7 @@ const { store, gameId, resetGame } = useGamePage()
         Reiniciar
       </BaseButton>
 
-      <p v-if="store.winner" class="game-page > winner">
+      <p v-if="store.winner" class="winner">
         Jogador {{ store.winner }} venceu!
       </p>
     </aside>

@@ -14,11 +14,11 @@ const {
 
 <template>
   <div class="settings-page">
-    <h1 class="settings-page > title">Configurações</h1>
+    <h1 class="title">Configurações</h1>
 
-    <BaseCard class="settings-page > section">
-      <h3 class="settings-page > section-title">Áudio</h3>
-      <div class="settings-page > row">
+    <BaseCard class="section">
+      <h3 class="title">Áudio</h3>
+      <div class="row">
         <span>Sons</span>
         <BaseButton
           :variant="soundEnabled ? 'primary' : 'secondary'"
@@ -30,9 +30,9 @@ const {
       </div>
     </BaseCard>
 
-    <BaseCard class="settings-page > section">
-      <h3 class="settings-page > section-title">Notificações</h3>
-      <div class="settings-page > row">
+    <BaseCard class="section">
+      <h3 class="title">Notificações</h3>
+      <div class="row">
         <span>Notificações</span>
         <BaseButton
           :variant="notificationsEnabled ? 'primary' : 'secondary'"
@@ -44,11 +44,11 @@ const {
       </div>
     </BaseCard>
 
-    <BaseCard class="settings-page > section">
-      <h3 class="settings-page > section-title">Aparência</h3>
-      <div class="settings-page > row">
+    <BaseCard class="section">
+      <h3 class="title">Aparência</h3>
+      <div class="row">
         <span>Tema</span>
-        <div class="settings-page > theme-options">
+        <div class="options">
           <BaseButton
             :variant="theme === 'dark' ? 'primary' : 'secondary'"
             size="sm"

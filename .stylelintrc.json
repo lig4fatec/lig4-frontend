@@ -1,5 +1,9 @@
 {
-  "extends": "stylelint-config-standard-scss",
+  "extends": [
+    "stylelint-config-standard-scss",
+    "@elecdeer/stylelint-rscss/config",
+    "stylelint-config-recommended-vue/scss"
+  ],
   "rules": {
     "selector-class-pattern": null,
     "no-descending-specificity": null,
