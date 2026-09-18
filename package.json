@@ -29,7 +29,7 @@
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "latest",
+    "@chromatic-com/storybook": "^5.3.1",
     "@elecdeer/stylelint-rscss": "^2.0.0",
     "@eslint/js": "^10.0.1",
     "@storybook/addon-a11y": "^10.6.0",
@@ -46,7 +46,7 @@
     "eslint-plugin-vue": "^10.10.0",
     "happy-dom": "^20.14.0",
     "husky": "^9.1.7",
-    "playwright": "latest",
+    "playwright": "^1.63.0",
     "sass": "^1.103.1",
     "storybook": "^10.6.0",
     "stylelint": "^17.14.1",
