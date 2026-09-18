@@ -1,35 +1,27 @@
-<script setup lang="ts">
-import type { IBaseInputProps } from './BaseInput.script'
-
-withDefaults(defineProps<IBaseInputProps>(), {
-  label: '',
-  placeholder: '',
-  error: '',
-  disabled: false,
-  type: 'text',
-})
-
-const emit = defineEmits<{
-  'update:modelValue': [value: string]
-}>()
-
-function handleInput(event: Event): void {
-  const target = event.target as HTMLInputElement
-  emit('update:modelValue', target.value)
-}
-</script>
+<script lang="ts" src="./BaseInput.ts"></script>
 
 <template>
-  <div class="base-input" :class="{ '-error': error, '-disabled': disabled }">
-    <label v-if="label" class="base-input > label">{{ label }}</label>
+  <div
+    v-bind="$attrs"
+    :id="id"
+    :data-testid="dataTestid"
+    class="base-input"
+    :class="{ '-error': error, '-disabled': disabled }"
+  >
+    <label v-if="label" class="label">
+      {{ label }}
+      <span v-if="required" class="required">*</span>
+    </label>
     <input
-      class="base-input > field"
+      class="field"
       :type="type"
       :value="modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
+      :required="required"
       @input="handleInput"
     />
-    <span v-if="error" class="base-input > error">{{ error }}</span>
+    <span v-if="hint && !error" class="hint">{{ hint }}</span>
+    <span v-if="error" class="error">{{ error }}</span>
   </div>
 </template>

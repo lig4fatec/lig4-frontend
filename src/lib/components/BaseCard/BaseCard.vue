@@ -1,21 +1,25 @@
-<script setup lang="ts">
-import type { IBaseCardProps } from './BaseCard.script'
-
-withDefaults(defineProps<IBaseCardProps>(), {
-  variant: 'default',
-  padding: 'md',
-})
-</script>
+<script lang="ts" src="./BaseCard.ts"></script>
 
 <template>
-  <div class="base-card" :class="[`-${variant}`, `-${padding}`]">
-    <header v-if="$slots.header" class="base-card > header">
-      <slot name="header" />
+  <div
+    v-bind="$attrs"
+    :id="id"
+    :data-testid="dataTestid"
+    class="base-card"
+    :class="classes"
+  >
+    <header v-if="$slots.header" class="header">
+      <div class="title">
+        <slot name="header" />
+      </div>
+      <div v-if="$slots.actions" class="actions">
+        <slot name="actions" />
+      </div>
     </header>
-    <div class="base-card > body">
+    <div class="body">
       <slot />
     </div>
-    <footer v-if="$slots.footer" class="base-card > footer">
+    <footer v-if="$slots.footer" class="footer">
       <slot name="footer" />
     </footer>
   </div>

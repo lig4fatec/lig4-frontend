@@ -1,0 +1,54 @@
+.base-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+
+  // stylelint-disable-next-line rscss/class-format
+  &:hover > .base-tooltip {
+    opacity: 100%;
+    visibility: visible;
+  }
+}
+
+.base-tooltip {
+  position: absolute;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-neutral-800);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  opacity: 0%;
+  visibility: hidden;
+  transition: opacity var(--duration-fast) var(--easing-default),
+              visibility var(--duration-fast) var(--easing-default);
+  z-index: var(--z-tooltip);
+
+  &.-top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: var(--space-1);
+  }
+
+  &.-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: var(--space-1);
+  }
+
+  &.-left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: var(--space-1);
+  }
+
+  &.-right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: var(--space-1);
+  }
+}

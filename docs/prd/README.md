@@ -18,6 +18,7 @@ Registros de requisitos do produto LIG 4.
 | [0010](0010-pagina-home-lobby.md) | Página Home/Lobby | Implementado |
 | [0011](0011-pagina-game-integracao-com-game.md) | Página Game (integração com game/) | Implementado |
 | [0012](0012-servico-websocket-para-multiplayer.md) | Serviço WebSocket para multiplayer | Implementado |
+| [0013](0013-design-system-tokens-temas-e-storybook.md) | Design System — tokens, temas e Storybook | Proposta |
 
 ## Template
 

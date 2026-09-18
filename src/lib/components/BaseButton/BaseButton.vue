@@ -1,33 +1,17 @@
-<script setup lang="ts">
-import type { IBaseButtonProps } from './BaseButton.script'
-
-const props = withDefaults(defineProps<IBaseButtonProps>(), {
-  variant: 'primary',
-  size: 'md',
-  disabled: false,
-  loading: false,
-})
-
-const emit = defineEmits<{
-  click: [event: MouseEvent]
-}>()
-
-function handleClick(event: MouseEvent): void {
-  if (!props.disabled && !props.loading) {
-    emit('click', event)
-  }
-}
-</script>
+<script lang="ts" src="./BaseButton.ts"></script>
 
 <template>
   <button
+    v-bind="$attrs"
+    :id="id"
+    :data-testid="dataTestid"
     class="base-button"
-    :class="[`-${props.variant}`, `-${props.size}`]"
+    :class="classes"
     :disabled="disabled || loading"
     @click="handleClick"
   >
-    <span v-if="loading" class="base-button > spinner" />
-    <span class="base-button > label">
+    <span v-if="loading" class="spinner" />
+    <span class="label">
       <slot />
     </span>
   </button>

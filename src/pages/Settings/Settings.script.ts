@@ -1,16 +1,17 @@
 import { ref } from 'vue'
+import { useTheme } from '../../lib/composables/useTheme'
 
 export function useSettings(): {
   soundEnabled: import('vue').Ref<boolean>
   notificationsEnabled: import('vue').Ref<boolean>
-  theme: import('vue').Ref<'dark' | 'light'>
+  theme: import('vue').ComputedRef<'dark' | 'light'>
   toggleSound: () => void
   toggleNotifications: () => void
   setTheme: (newTheme: 'dark' | 'light') => void
 } {
   const soundEnabled = ref<boolean>(true)
   const notificationsEnabled = ref<boolean>(true)
-  const theme = ref<'dark' | 'light'>('dark')
+  const { theme, setTheme: setThemeGlobal } = useTheme()
 
   function toggleSound(): void {
     soundEnabled.value = !soundEnabled.value
@@ -21,7 +22,7 @@ export function useSettings(): {
   }
 
   function setTheme(newTheme: 'dark' | 'light'): void {
-    theme.value = newTheme
+    setThemeGlobal(newTheme)
   }
 
   return {

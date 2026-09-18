@@ -1,0 +1,49 @@
+.base-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: var(--color-surface);
+  border: var(--border-thin);
+  border-color: var(--color-border);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+
+  &.-sm {
+    padding: var(--space-0) var(--space-2);
+    font-size: var(--font-size-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  &.-md {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+  }
+
+  > .remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--space-4);
+    height: var(--space-4);
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--easing-default),
+                color var(--duration-fast) var(--easing-default);
+
+    &:hover {
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+}

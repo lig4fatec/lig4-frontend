@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import './styles/index.scss'
+import './lib/styles/index.scss'
+import ThemeProvider from './lib/providers/ThemeProvider.vue'
 </script>
 
 <template>
-  <div class="app-layout">
-    <RouterView />
-  </div>
+  <ThemeProvider>
+    <div class="app-layout">
+      <RouterView />
+    </div>
+  </ThemeProvider>
 </template>

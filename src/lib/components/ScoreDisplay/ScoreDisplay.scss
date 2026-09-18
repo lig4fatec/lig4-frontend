@@ -1,0 +1,30 @@
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+
+  > .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+
+    > .label {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      font-weight: var(--font-weight-medium);
+    }
+
+    > .score {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text);
+    }
+  }
+
+  > .divider {
+    font-size: var(--font-size-2xl);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-light);
+  }
+}

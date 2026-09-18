@@ -12,26 +12,42 @@
     "lint:fix": "eslint src/ --fix",
     "lint:css": "stylelint \"src/**/*.scss\"",
     "lint:css:fix": "stylelint \"src/**/*.scss\" --fix",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "prepare": "husky"
+    "test": "vitest run --project=unit",
+    "test:all": "vitest run",
+    "test:watch": "vitest --project=unit",
+    "test:storybook": "vitest run --project=storybook",
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "lucide-vue-next": "^1.0.0",
     "phaser": "^4.2.1",
     "pinia": "^2.1.7",
     "vue": "^3.5.42",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "latest",
     "@elecdeer/stylelint-rscss": "^2.0.0",
     "@eslint/js": "^10.0.1",
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
+    "@storybook/addon-onboarding": "^10.6.0",
+    "@storybook/addon-vitest": "^10.6.0",
+    "@storybook/vue3-vite": "^10.6.0",
     "@vitejs/plugin-vue": "^6.0.8",
+    "@vitest/browser-playwright": "5.0.0",
+    "@vitest/coverage-v8": "5.0.0",
     "@vue/test-utils": "^2.5.0",
     "eslint": "^10.9.1",
+    "eslint-plugin-storybook": "^10.6.0",
     "eslint-plugin-vue": "^10.10.0",
     "happy-dom": "^20.14.0",
     "husky": "^9.1.7",
+    "playwright": "latest",
     "sass": "^1.103.1",
+    "storybook": "^10.6.0",
     "stylelint": "^17.14.1",
     "stylelint-config-recommended-scss": "^17.0.1",
     "stylelint-config-recommended-vue": "^2.0.0",
@@ -41,6 +57,7 @@
     "typescript-eslint": "^8.69.0",
     "vite": "^8.2.2",
     "vitest": "^5.0.0",
+    "vue-eslint-parser": "^10.4.1",
     "vue-tsc": "^3.3.11"
   }
 }
