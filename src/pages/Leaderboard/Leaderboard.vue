@@ -7,7 +7,7 @@ const { sortedScores } = useLeaderboard()
 
 <template>
   <div class="leaderboard-page">
-    <h1 class="leaderboard-page > title">Placar</h1>
+    <h1 class="leaderboard-page > title">{{ $t('leaderboard.title') }}</h1>
 
     <div class="leaderboard-page > list">
       <BaseCard
@@ -15,13 +15,13 @@ const { sortedScores } = useLeaderboard()
         :key="entry.playerId"
         class="leaderboard-page > entry"
       >
-        <div class="leaderboard-page > rank">#{{ index + 1 }}</div>
+        <div class="leaderboard-page > rank">{{ $t('leaderboard.rank', { rank: index + 1 }) }}</div>
         <div class="leaderboard-page > player">
           <span class="leaderboard-page > name">{{ entry.playerName }}</span>
           <div class="leaderboard-page > stats">
-            <span class="leaderboard-page > wins">{{ entry.wins }}V</span>
-            <span class="leaderboard-page > losses">{{ entry.losses }}D</span>
-            <span class="leaderboard-page > draws">{{ entry.draws }}E</span>
+            <span class="leaderboard-page > wins">{{ $t('common.wins', { count: entry.wins }) }}</span>
+            <span class="leaderboard-page > losses">{{ $t('common.losses', { count: entry.losses }) }}</span>
+            <span class="leaderboard-page > draws">{{ $t('common.draws', { count: entry.draws }) }}</span>
           </div>
         </div>
       </BaseCard>

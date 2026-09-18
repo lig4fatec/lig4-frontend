@@ -13,7 +13,7 @@
       v-if="removable"
       class="remove"
       type="button"
-      aria-label="Remover"
+      :aria-label="$t('common.remove')"
       @click="handleRemove"
     >
       ×

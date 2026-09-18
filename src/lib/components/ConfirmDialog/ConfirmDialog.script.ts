@@ -23,10 +23,10 @@ export const confirmDialogProps = {
   id: { type: String, default: undefined },
   dataTestid: { type: String, default: undefined },
   isOpen: { type: Boolean, required: true as const },
-  title: { type: String, default: 'Confirmar' },
+  title: { type: String, default: undefined },
   message: { type: String, default: '' },
-  confirmText: { type: String, default: 'Confirmar' },
-  cancelText: { type: String, default: 'Cancelar' },
+  confirmText: { type: String, default: undefined },
+  cancelText: { type: String, default: undefined },
   variant: { type: String as () => IConfirmDialogProps['variant'], default: 'danger' },
 }
 

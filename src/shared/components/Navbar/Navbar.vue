@@ -31,7 +31,7 @@ const currentPath = computed(() => route.path)
       </li>
     </ul>
     <div class="profile">
-      <BaseAvatar name="Jogador" size="sm" />
+      <BaseAvatar :name="$t('nav.player')" size="sm" />
     </div>
   </nav>
 </template>

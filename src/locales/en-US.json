@@ -1,0 +1,85 @@
+{
+  "common": {
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "remove": "Remove",
+    "level": "Level {level}",
+    "wins": "{count}W",
+    "losses": "{count}L",
+    "draws": "{count}D"
+  },
+  "nav": {
+    "home": "Home",
+    "play": "Play",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "settings": "Settings",
+    "player": "Player"
+  },
+  "home": {
+    "title": "CONNECT 4",
+    "subtitle": "The classic tic-tac-toe in a new dimension",
+    "modes": {
+      "local": {
+        "label": "Local",
+        "description": "Play on the same device"
+      },
+      "online": {
+        "label": "Online",
+        "description": "Challenge a friend online"
+      },
+      "ai": {
+        "label": "vs. Computer",
+        "description": "Play against AI"
+      }
+    }
+  },
+  "game": {
+    "title": "CONNECT 4",
+    "match": "Match: {id}",
+    "turn": "Player {player}'s turn",
+    "restart": "Restart",
+    "winner": "Player {winner} won!",
+    "sidebarTitle": "CONNECT 4"
+  },
+  "settings": {
+    "title": "Settings",
+    "audio": "Audio",
+    "sounds": "Sounds",
+    "notifications": "Notifications",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "language": "Language",
+    "languagePortuguese": "Portuguese (BR)",
+    "languageEnglish": "English (US)"
+  },
+  "profile": {
+    "title": "Profile",
+    "level": "Level {level}",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "rank": "#{rank}",
+    "empty": "No results yet"
+  },
+  "components": {
+    "confirmDialog": {
+      "title": "Confirm",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "baseChip": {
+      "remove": "Remove"
+    },
+    "scoreDisplay": {
+      "player1": "Player 1",
+      "player2": "Player 2"
+    }
+  }
+}

@@ -8,7 +8,7 @@ const { store, gameId, resetGame } = useGamePage()
 <template>
   <div class="game-page">
     <header class="header">
-      <span v-if="gameId" class="id">Partida: {{ gameId }}</span>
+      <span v-if="gameId" class="id">{{ $t('game.match', { id: gameId }) }}</span>
     </header>
 
     <div class="board">
@@ -16,20 +16,20 @@ const { store, gameId, resetGame } = useGamePage()
     </div>
 
     <aside class="sidebar">
-      <h2 class="title">LIG 4</h2>
+      <h2 class="title">{{ $t('game.sidebarTitle') }}</h2>
 
-      <p class="status">Vez do jogador {{ store.currentPlayer }}</p>
+      <p class="status">{{ $t('game.turn', { player: store.currentPlayer }) }}</p>
 
       <BaseButton
         v-if="store.gameOver"
         variant="primary"
         @click="resetGame"
       >
-        Reiniciar
+        {{ $t('game.restart') }}
       </BaseButton>
 
       <p v-if="store.winner" class="winner">
-        Jogador {{ store.winner }} venceu!
+        {{ $t('game.winner', { winner: store.winner }) }}
       </p>
     </aside>
   </div>

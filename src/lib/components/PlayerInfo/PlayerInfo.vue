@@ -10,7 +10,7 @@
     <BaseAvatar :src="avatar" :name="name" size="md" />
     <div class="details">
       <span class="name">{{ name }}</span>
-      <span v-if="level !== undefined" class="level">Nível {{ level }}</span>
+      <span v-if="level !== undefined" class="level">{{ $t('common.level', { level }) }}</span>
     </div>
   </div>
 </template>

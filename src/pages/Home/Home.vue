@@ -8,8 +8,8 @@ const { gameModes, selectMode } = useHome()
 <template>
   <div class="home-page">
     <section class="hero">
-      <h1 class="title">LIG 4</h1>
-      <p class="subtitle">O clássico jogo da velha em uma nova dimensão</p>
+      <h1 class="title">{{ $t('home.title') }}</h1>
+      <p class="subtitle">{{ $t('home.subtitle') }}</p>
     </section>
 
     <section class="modes">

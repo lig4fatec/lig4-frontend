@@ -1,0 +1,85 @@
+{
+  "common": {
+    "enabled": "Ativado",
+    "disabled": "Desativado",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "remove": "Remover",
+    "level": "Nível {level}",
+    "wins": "{count}V",
+    "losses": "{count}D",
+    "draws": "{count}E"
+  },
+  "nav": {
+    "home": "Início",
+    "play": "Jogar",
+    "leaderboard": "Placar",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "player": "Jogador"
+  },
+  "home": {
+    "title": "LIG 4",
+    "subtitle": "O clássico jogo da velha em uma nova dimensão",
+    "modes": {
+      "local": {
+        "label": "Local",
+        "description": "Jogue no mesmo dispositivo"
+      },
+      "online": {
+        "label": "Online",
+        "description": "Desafie um amigo online"
+      },
+      "ai": {
+        "label": "vs. Computador",
+        "description": "Jogue contra a IA"
+      }
+    }
+  },
+  "game": {
+    "title": "LIG 4",
+    "match": "Partida: {id}",
+    "turn": "Vez do jogador {player}",
+    "restart": "Reiniciar",
+    "winner": "Jogador {winner} venceu!",
+    "sidebarTitle": "LIG 4"
+  },
+  "settings": {
+    "title": "Configurações",
+    "audio": "Áudio",
+    "sounds": "Sons",
+    "notifications": "Notificações",
+    "appearance": "Aparência",
+    "theme": "Tema",
+    "dark": "Escuro",
+    "light": "Claro",
+    "language": "Idioma",
+    "languagePortuguese": "Português (BR)",
+    "languageEnglish": "Inglês (US)"
+  },
+  "profile": {
+    "title": "Perfil",
+    "level": "Nível {level}",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Seu nome"
+  },
+  "leaderboard": {
+    "title": "Placar",
+    "rank": "#{rank}",
+    "empty": "Nenhum resultado ainda"
+  },
+  "components": {
+    "confirmDialog": {
+      "title": "Confirmar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar"
+    },
+    "baseChip": {
+      "remove": "Remover"
+    },
+    "scoreDisplay": {
+      "player1": "Jogador 1",
+      "player2": "Jogador 2"
+    }
+  }
+}

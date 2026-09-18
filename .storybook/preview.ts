@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/vue3-vite'
-import { h, ref, watchEffect } from 'vue'
+import { h } from 'vue'
 import { useTheme } from '../src/lib/composables/useTheme'
+import i18n from '../src/lib/i18n'
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +16,38 @@ const preview: Preview = {
       test: 'todo'
     }
   },
+  globalTypes: {
+    locale: {
+      description: 'Idioma',
+      defaultValue: 'pt-BR',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { value: 'pt-BR', title: 'Português (BR)' },
+          { value: 'en-US', title: 'English (US)' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
   decorators: [
+    (story, context) => {
+      const locale = context.globals.locale as string
+      if (locale && (locale === 'pt-BR' || locale === 'en-US')) {
+        const current = i18n.global.locale as unknown as string | { value: string }
+        if (typeof current === 'string') {
+          ;(i18n.global.locale as unknown as string) = locale
+        } else {
+          current.value = locale
+        }
+        document.documentElement.setAttribute('lang', locale)
+      }
+      return {
+        setup() {
+          return () => h(story())
+        },
+      }
+    },
     (story) => {
       const { theme, toggleTheme } = useTheme()
 

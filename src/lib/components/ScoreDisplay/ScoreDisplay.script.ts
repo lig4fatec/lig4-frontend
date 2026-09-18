@@ -18,8 +18,8 @@ export const scoreDisplayProps = {
   id: { type: String, default: undefined },
   dataTestid: { type: String, default: undefined },
   score: { type: Object as () => IScore, required: true as const },
-  player1Label: { type: String, default: 'Jogador 1' },
-  player2Label: { type: String, default: 'Jogador 2' },
+  player1Label: { type: String, default: undefined },
+  player2Label: { type: String, default: undefined },
 }
 
 export function useScoreDisplay(): Record<string, never> {
