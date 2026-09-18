@@ -1,5 +1,3 @@
-<script lang="ts" src="./FormField.script.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -19,3 +17,5 @@
     <span v-if="error" :id="errorId" class="error" role="alert">{{ error }}</span>
   </div>
 </template>
+
+<script lang="ts" src="./FormField.script.ts"></script>

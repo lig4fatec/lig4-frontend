@@ -1,5 +1,3 @@
-<script lang="ts" src="./ConfirmDialog.script.ts"></script>
-
 <template>
   <BaseModal
     v-bind="$attrs"
@@ -25,3 +23,5 @@
     </template>
   </BaseModal>
 </template>
+
+<script lang="ts" src="./ConfirmDialog.script.ts"></script>

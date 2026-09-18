@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseAvatar.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -12,3 +10,5 @@
     <span v-else class="initials">{{ initials }}</span>
   </div>
 </template>
+
+<script lang="ts" src="./BaseAvatar.ts"></script>

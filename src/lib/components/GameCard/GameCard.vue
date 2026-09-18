@@ -1,5 +1,3 @@
-<script lang="ts" src="./GameCard.script.ts"></script>
-
 <template>
   <BaseCard
     v-bind="$attrs"
@@ -15,3 +13,5 @@
     <slot />
   </BaseCard>
 </template>
+
+<script lang="ts" src="./GameCard.script.ts"></script>

@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseCard.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -24,3 +22,5 @@
     </footer>
   </div>
 </template>
+
+<script lang="ts" src="./BaseCard.ts"></script>

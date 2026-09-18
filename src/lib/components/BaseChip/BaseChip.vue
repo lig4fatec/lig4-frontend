@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseChip.script.ts"></script>
-
 <template>
   <span
     v-bind="$attrs"
@@ -20,3 +18,5 @@
     </button>
   </span>
 </template>
+
+<script lang="ts" src="./BaseChip.script.ts"></script>

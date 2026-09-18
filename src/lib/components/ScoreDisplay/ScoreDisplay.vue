@@ -1,5 +1,3 @@
-<script lang="ts" src="./ScoreDisplay.script.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -18,3 +16,5 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" src="./ScoreDisplay.script.ts"></script>

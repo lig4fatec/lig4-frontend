@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseTooltip.script.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -17,3 +15,5 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" src="./BaseTooltip.script.ts"></script>

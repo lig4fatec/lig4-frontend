@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseButton.ts"></script>
-
 <template>
   <button
     v-bind="$attrs"
@@ -16,3 +14,5 @@
     </span>
   </button>
 </template>
+
+<script lang="ts" src="./BaseButton.ts"></script>

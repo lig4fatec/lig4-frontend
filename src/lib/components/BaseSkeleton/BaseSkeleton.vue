@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseSkeleton.script.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -11,3 +9,5 @@
     aria-hidden="true"
   />
 </template>
+
+<script lang="ts" src="./BaseSkeleton.script.ts"></script>

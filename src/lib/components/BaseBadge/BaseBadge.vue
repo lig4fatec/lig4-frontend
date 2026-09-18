@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseBadge.script.ts"></script>
-
 <template>
   <span
     v-bind="$attrs"
@@ -11,3 +9,5 @@
     <slot />
   </span>
 </template>
+
+<script lang="ts" src="./BaseBadge.script.ts"></script>

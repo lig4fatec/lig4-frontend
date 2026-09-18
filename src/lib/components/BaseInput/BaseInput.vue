@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseInput.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -25,3 +23,5 @@
     <span v-if="error" class="error">{{ error }}</span>
   </div>
 </template>
+
+<script lang="ts" src="./BaseInput.ts"></script>

@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseModal.ts"></script>
-
 <template>
   <Teleport to="body">
     <div
@@ -32,3 +30,5 @@
     </div>
   </Teleport>
 </template>
+
+<script lang="ts" src="./BaseModal.ts"></script>

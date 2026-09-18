@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseDivider.script.ts"></script>
-
 <template>
   <hr
     v-bind="$attrs"
@@ -9,3 +7,5 @@
     :class="orientationClass"
   />
 </template>
+
+<script lang="ts" src="./BaseDivider.script.ts"></script>

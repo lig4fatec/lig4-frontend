@@ -1,5 +1,3 @@
-<script lang="ts" src="./BaseSpinner.script.ts"></script>
-
 <template>
   <div
     v-bind="$attrs"
@@ -14,3 +12,5 @@
     <span v-if="label" class="label">{{ label }}</span>
   </div>
 </template>
+
+<script lang="ts" src="./BaseSpinner.script.ts"></script>
